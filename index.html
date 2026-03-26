@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World - Landing Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: #fff;
+            padding: 160px 20px 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background: #fff;
+            color: #2563eb;
+        }
+
+        .btn-outline {
+            border: 2px solid #fff;
+            color: #fff;
+            margin-left: 15px;
+        }
+
+        /* Features */
+        .features {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #1e293b;
+        }
+
+        .features > p {
+            color: #64748b;
+            font-size: 18px;
+            margin-bottom: 60px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            padding: 40px 30px;
+            border-radius: 16px;
+            background: #f8fafc;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #1e293b;
+        }
+
+        .feature-card p {
+            color: #64748b;
+            font-size: 15px;
+        }
+
+        /* About */
+        .about {
+            background: #f1f5f9;
+            padding: 100px 20px;
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #1e293b;
+        }
+
+        .about-text p {
+            color: #64748b;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            border-radius: 20px;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 80px;
+        }
+
+        /* Stats */
+        .stats {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 42px;
+            color: #2563eb;
+            font-weight: 800;
+        }
+
+        .stat-item p {
+            color: #64748b;
+            font-size: 16px;
+            margin-top: 8px;
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e293b;
+            color: #94a3b8;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-brand .logo {
+            color: #fff;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+        }
+
+        footer h4 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer ul li {
+            margin-bottom: 8px;
+        }
+
+        footer ul a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        footer ul a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 16px; }
+            .about-content { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">HelloWorld</a>
+            <ul class="nav-links">
+                <li><a href="#features">Tinh nang</a></li>
+                <li><a href="#about">Gioi thieu</a></li>
+                <li><a href="#stats">Thanh tuu</a></li>
+                <li><a href="#contact">Lien he</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Chao mung den voi HelloWorld</h1>
+        <p>Chung toi mang den giai phap cong nghe hien dai, giup ban phat trien va vuon xa hon trong thoi dai so.</p>
+        <a href="#features" class="btn btn-primary">Kham pha ngay</a>
+        <a href="#contact" class="btn btn-outline">Lien he</a>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <h2>Tinh nang noi bat</h2>
+        <p>Nhung gi chung toi mang lai cho ban</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">&#9889;</div>
+                <h3>Toc do vuot troi</h3>
+                <p>Hieu suat xu ly nhanh chong, toi uu hoa moi trai nghiem nguoi dung voi cong nghe tien tien nhat.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#128274;</div>
+                <h3>Bao mat toi da</h3>
+                <p>He thong bao mat da lop, dam bao an toan tuyet doi cho du lieu va thong tin cua ban.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#128640;</div>
+                <h3>De dang su dung</h3>
+                <p>Giao dien than thien, truc quan, giup ban bat dau su dung chi trong vai phut.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Ve chung toi</h2>
+                <p>HelloWorld la mot doi ngu dam me cong nghe, luon no luc mang den nhung san pham chat luong cao nhat cho khach hang.</p>
+                <p>Voi hon 5 nam kinh nghiem trong linh vuc cong nghe, chung toi da phuc vu hang ngan khach hang va doanh nghiep tren toan quoc.</p>
+                <p>Su menh cua chung toi la giup moi nguoi tiep can cong nghe mot cach de dang va hieu qua nhat.</p>
+            </div>
+            <div class="about-image">&#127760;</div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats" id="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>5,000+</h3>
+                <p>Khach hang tin tuong</p>
+            </div>
+            <div class="stat-item">
+                <h3>99.9%</h3>
+                <p>Uptime he thong</p>
+            </div>
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>Doi tac chien luoc</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>Ho tro khach hang</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contact">
+        <h2>San sang bat dau?</h2>
+        <p>Lien he voi chung toi ngay hom nay de duoc tu van mien phi.</p>
+        <a href="mailto:hello@example.com" class="btn btn-primary">Lien he ngay</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="logo">HelloWorld</span>
+                <p>Giai phap cong nghe hien dai cho moi nguoi.</p>
+            </div>
+            <div>
+                <h4>San pham</h4>
+                <ul>
+                    <li><a href="#">Tinh nang</a></li>
+                    <li><a href="#">Bang gia</a></li>
+                    <li><a href="#">Cap nhat</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Cong ty</h4>
+                <ul>
+                    <li><a href="#">Gioi thieu</a></li>
+                    <li><a href="#">Tuyen dung</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Ho tro</h4>
+                <ul>
+                    <li><a href="#">Trung tam tro giup</a></li>
+                    <li><a href="#">Lien he</a></li>
+                    <li><a href="#">Dieu khoan</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 HelloWorld. Tat ca quyen duoc bao luu.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
